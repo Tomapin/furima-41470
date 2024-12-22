@@ -36,7 +36,8 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :comments
+- has_many :records
+- has_many :shippings
 
 ## itemsテーブル
 
@@ -49,14 +50,31 @@ Things you may want to cover:
 
 ### Association
 - belogns_to :users
-- has_many   :comments
+- has_many   :records
+- has_one    :shippings
 
-## commentsテーブル
+## recordsテーブル
 
 |Column   |Type       |Options                        |
 |------   |---------- |------------------------------ |
-|comments |text       |null: false, |
+|userneme |string     |null: false, |
+|records  |string     |null: false, |
 
+
+### Association
+- belogns_to :users
+- belongs_to :items
+
+## shippingsテーブル
+
+|Column      |Type       |Options                        |
+|----------- |---------- |------------------------------ |
+|postnumber  |integer    |null: false, |
+|prefecture  |string     |null: false, |
+|City        |string     |null: false, |
+|housenumber |integer    |null: false, |
+|Buildingname|string     |null: false, |
+|purchaser   |string     |null: false, |
 
 ### Association
 - belogns_to :users
