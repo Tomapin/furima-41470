@@ -43,24 +43,27 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-|Column   |Type               |Options                        |
-|------   |------------------ |------------------------------ |
-|item_name|string             |null: false, |
-|category |category_genre_id  |null: false, |
-|money    |integer            |null: false, |
-|name     |string             |null: false, |
+|Column         |Type               |Options                        |
+|-------------  |------------------ |------------------------------ |
+|item_name      |string             |null: false, |
+|category_id    |integer            |null: false, |
+|money          |integer            |null: false, |
+|name           |integer            |null: false, |
+|condition_id   |integer            |null: false, |
+|burden_id      |integer            |null: false, |
+|from_region_id |integer            |null: false, |
+|days_to_ship_id|integer            |null: false, |
 
 ### Association
 - belongs_to :user
 - has_many   :records
-- belongs_to :categorygenre
 
 ## recordsテーブル
 
-|Column     |Type       |Options                        |
-|--------   |---------- |------------------------------ |
-|user_neme  |string     |null: false, |
-|item_name  |string     |null: false, |
+|Column     |Type           |Options                        |
+|--------   |-------------- |------------------------------ |
+|user_neme  |references     |null: false, |
+|item_name  |references     |null: false, |
 
 
 ### Association
