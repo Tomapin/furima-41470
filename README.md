@@ -31,35 +31,36 @@ Things you may want to cover:
 |nick_name          |string     |null: false,  |
 |email              |string     |null: false, unique:true |
 |encrypted_password |string     |null: false, |
+|user_surname       |string     |null: false, |
 |user_name          |string     |null: false, |
+|user_surname_kana  |string     |null: false, |
+|user_name_kana     |string     |null: false, |
 |barthday           |date       |null: false, |
 
 ### Association
 - has_many :items
 - has_many :records
-- has_many :shippings
 
 ## itemsテーブル
 
-|Column   |Type       |Options                        |
-|------   |---------- |------------------------------ |
-|item_name|string     |null: false, |
-|category |string     |null: false, |
-|money    |integer    |null: false, |
-|name     |string     |null: false, |
+|Column   |Type               |Options                        |
+|------   |------------------ |------------------------------ |
+|item_name|string             |null: false, |
+|category |category_genre_id  |null: false, |
+|money    |integer            |null: false, |
+|name     |string             |null: false, |
 
 ### Association
-- belogns_to :user
+- belongs_to :user
 - has_many   :records
-- has_one    :shipping
 - belongs_to :categorygenre
 
 ## recordsテーブル
 
-|Column   |Type       |Options                        |
-|------   |---------- |------------------------------ |
-|user_neme|string     |null: false, |
-|records  |string     |null: false, |
+|Column     |Type       |Options                        |
+|--------   |---------- |------------------------------ |
+|user_neme  |string     |null: false, |
+|item_name  |string     |null: false, |
 
 
 ### Association
@@ -78,14 +79,7 @@ Things you may want to cover:
 |purchaser    |string     |null: false, |
 
 ### Association
-- belogns_to :user
+- belongs_to :user
 - belongs_to :item
 
-## categorygenresテーブル
 
-|Column      |Type       |Options                        |
-|----------- |---------- |------------------------------ |
-|id          |name       |null: false, |
-
-### Association
-- has_many :items
