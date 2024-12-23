@@ -26,13 +26,13 @@ Things you may want to cover:
 
 ## usersテーブル
 
-|Column   |Type       |Options                        |
-|------   |---------- |------------------------------ |
-|nickname |string     |null: false,  |
-|email    |string     |null: false, unique:true |
-|password |string     |null: false, |
-|username |string     |null: false, |
-|barthday |integer    |null: false, |
+|Column             |Type       |Options                        |
+|----------------   |---------- |------------------------------ |
+|nick_name          |string     |null: false,  |
+|email              |string     |null: false, unique:true |
+|encrypted_password |string     |null: false, |
+|user_name          |string     |null: false, |
+|barthday           |date       |null: false, |
 
 ### Association
 - has_many :items
@@ -43,39 +43,49 @@ Things you may want to cover:
 
 |Column   |Type       |Options                        |
 |------   |---------- |------------------------------ |
-|itemname |string     |null: false, |
+|item_name|string     |null: false, |
 |category |string     |null: false, |
 |money    |integer    |null: false, |
 |name     |string     |null: false, |
 
 ### Association
-- belogns_to :users
+- belogns_to :user
 - has_many   :records
-- has_one    :shippings
+- has_one    :shipping
+- belongs_to :categorygenre
 
 ## recordsテーブル
 
 |Column   |Type       |Options                        |
 |------   |---------- |------------------------------ |
-|userneme |string     |null: false, |
+|user_neme|string     |null: false, |
 |records  |string     |null: false, |
 
 
 ### Association
-- belogns_to :users
-- belongs_to :items
+- belogns_to :user
+- belongs_to :item
 
 ## shippingsテーブル
 
-|Column      |Type       |Options                        |
-|----------- |---------- |------------------------------ |
-|postnumber  |integer    |null: false, |
-|prefecture  |string     |null: false, |
-|City        |string     |null: false, |
-|housenumber |integer    |null: false, |
-|Buildingname|string     |null: false, |
-|purchaser   |string     |null: false, |
+|Column       |Type       |Options                        |
+|-----------  |---------- |------------------------------ |
+|post_number  |string     |null: false, |
+|prefecture   |string     |null: false, |
+|city         |string     |null: false, |
+|house_number |string     |null: false, |
+|building_name|string     |             |
+|purchaser    |string     |null: false, |
 
 ### Association
-- belogns_to :users
-- belongs_to :items
+- belogns_to :user
+- belongs_to :item
+
+## categorygenresテーブル
+
+|Column      |Type       |Options                        |
+|----------- |---------- |------------------------------ |
+|id          |name       |null: false, |
+
+### Association
+- has_many :items
