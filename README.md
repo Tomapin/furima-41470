@@ -46,13 +46,14 @@ Things you may want to cover:
 |Column         |Type               |Options                        |
 |-------------  |------------------ |------------------------------ |
 |item_name      |string             |null: false, |
+|item_text      |text               |null: false, |
 |category_id    |integer            |null: false, |
 |money          |integer            |null: false, |
-|user_name      |string             |null: false, |
 |condition_id   |integer            |null: false, |
 |burden_id      |integer            |null: false, |
 |from_region_id |integer            |null: false, |
 |days_to_ship_id|integer            |null: false, |
+|user_id        |integer            |mull: false, |
 
 ### Association
 - belongs_to :user
@@ -63,26 +64,25 @@ Things you may want to cover:
 |Column     |Type           |Options                        |
 |--------   |-------------- |------------------------------ |
 |user_neme  |references     |null: false, |
-|item_name  |references     |null: false, |
+|item       |references     |foreign_key: true|
 
 
 ### Association
 - belongs_to :user
 - belongs_to :item
+- has_one :shipping
 
 ## shippingsテーブル
 
 |Column       |Type       |Options                        |
 |-----------  |---------- |------------------------------ |
 |post_number  |string     |null: false, |
-|prefecture   |string     |null: false, |
+|prefecture_id|integer    |null: false, |
 |city         |string     |null: false, |
 |house_number |string     |null: false, |
 |building_name|string     |             |
-|purchaser    |string     |null: false, |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-
-
+- belongs_to :record
