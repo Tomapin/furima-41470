@@ -53,18 +53,18 @@ Things you may want to cover:
 |burden_id      |integer            |null: false, |
 |from_region_id |integer            |null: false, |
 |days_to_ship_id|integer            |null: false, |
-|user_id        |integer            |mull: false, |
+|user           |string             |mull: false, |
 
 ### Association
 - belongs_to :user
-- has_many   :records
+- has_one    :record
 
 ## recordsテーブル
 
 |Column     |Type           |Options                        |
 |--------   |-------------- |------------------------------ |
-|user_neme  |references     |null: false, |
-|item       |references     |foreign_key: true|
+|user       |references     |null: false, |
+|item       |references     |null: false, foreign_key: true |
 
 
 ### Association
@@ -74,15 +74,15 @@ Things you may want to cover:
 
 ## shippingsテーブル
 
-|Column       |Type       |Options                        |
+|Column        |Type       |Options                        |
 |-----------  |---------- |------------------------------ |
-|post_number  |string     |null: false, |
-|prefecture_id|integer    |null: false, |
-|city         |string     |null: false, |
-|house_number |string     |null: false, |
-|building_name|string     |             |
+|post_number   |string     |null: false, |
+|from_region_id|integer    |null: false, |
+|city          |string     |null: false, |
+|house_number  |string     |null: false, |
+|building_name |string     |             |
+|phone_number  |string     |null: false, |
+|record_id     |integer    |null: false, |
 
 ### Association
-- belongs_to :user
-- belongs_to :item
 - belongs_to :record
