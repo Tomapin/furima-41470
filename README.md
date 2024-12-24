@@ -53,7 +53,7 @@ Things you may want to cover:
 |burden_id      |integer            |null: false, |
 |from_region_id |integer            |null: false, |
 |days_to_ship_id|integer            |null: false, |
-|user           |refarences         |null: false, foreign_key: |
+|user           |refarences         |null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -63,7 +63,7 @@ Things you may want to cover:
 
 |Column     |Type           |Options                        |
 |--------   |-------------- |------------------------------ |
-|user       |refarences     |null: false, foreign_key: |
+|user       |refarences     |null: false, foreign_key: true |
 |item       |references     |null: false, foreign_key: true |
 
 
@@ -82,7 +82,7 @@ Things you may want to cover:
 |house_number  |string     |null: false, |
 |building_name |string     |             |
 |phone_number  |string     |null: false, |
-|record_id     |refarences |null: false, foreign_key: |
+|record_id     |refarences |null: false, foreign_key: true |
 
 
 ### Association
