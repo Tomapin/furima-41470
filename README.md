@@ -47,12 +47,12 @@ Things you may want to cover:
 |-------------  |------------------ |------------------------------ |
 |item_name      |string             |null: false, |
 |item_text      |text               |null: false, |
-|category_id    |refarences         |mull: false, foreign_key: true foreign_key: true |
+|category_id    |integer            |null: false, |
 |money          |integer            |null: false, |
-|condition_id   |refarences         |mull: false, foreign_key: true foreign_key: true |
-|burden_id      |refarences         |mull: false, foreign_key: true foreign_key: true |
-|from_region_id |refarences         |mull: false, foreign_key: true foreign_key: true |
-|days_to_ship_id|refarences         |mull: false, foreign_key: true foreign_key: true |
+|condition_id   |integer            |null: false, |
+|burden_id      |integer            |null: false, |
+|from_region_id |integer            |null: false, |
+|days_to_ship_id|integer            |null: false, |
 |user           |refarences         |mull: false, foreign_key: true foreign_key: true |
 
 ### Association
@@ -82,7 +82,8 @@ Things you may want to cover:
 |house_number  |string     |null: false, |
 |building_name |string     |             |
 |phone_number  |string     |null: false, |
-|record_id     |integer    |null: false, |
+|record_id     |refarences         |mull: false, foreign_key: true foreign_key: true |
+
 
 ### Association
 - belongs_to :record
