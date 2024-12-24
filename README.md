@@ -48,7 +48,7 @@ Things you may want to cover:
 |item_name      |string             |null: false, |
 |category_id    |integer            |null: false, |
 |money          |integer            |null: false, |
-|name           |integer            |null: false, |
+|user_name      |string             |null: false, |
 |condition_id   |integer            |null: false, |
 |burden_id      |integer            |null: false, |
 |from_region_id |integer            |null: false, |
@@ -67,7 +67,7 @@ Things you may want to cover:
 
 
 ### Association
-- belogns_to :user
+- belongs_to :user
 - belongs_to :item
 
 ## shippingsテーブル
