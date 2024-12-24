@@ -47,13 +47,13 @@ Things you may want to cover:
 |-------------  |------------------ |------------------------------ |
 |item_name      |string             |null: false, |
 |item_text      |text               |null: false, |
-|category_id    |integer            |null: false, |
+|category_id    |refarences         |mull: false, foreign_key: true foreign_key: true |
 |money          |integer            |null: false, |
-|condition_id   |integer            |null: false, |
-|burden_id      |integer            |null: false, |
-|from_region_id |integer            |null: false, |
-|days_to_ship_id|integer            |null: false, |
-|user           |string             |mull: false, |
+|condition_id   |refarences         |mull: false, foreign_key: true foreign_key: true |
+|burden_id      |refarences         |mull: false, foreign_key: true foreign_key: true |
+|from_region_id |refarences         |mull: false, foreign_key: true foreign_key: true |
+|days_to_ship_id|refarences         |mull: false, foreign_key: true foreign_key: true |
+|user           |refarences         |mull: false, foreign_key: true foreign_key: true |
 
 ### Association
 - belongs_to :user
