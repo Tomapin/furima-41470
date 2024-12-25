@@ -17,13 +17,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_24_151938) do
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
-    t.string "nickname", default: "", null: false
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "user_surname", default: "", null: false
-    t.string "user_name", default: "", null: false
-    t.string "user_surname_kana", default: "", null: false
-    t.string "user_name_kana", default: "", null: false
+    t.string "user_surname", null: false
+    t.string "user_name", null: false
+    t.string "user_surname_kana", null: false
+    t.string "user_name_kana", null: false
     t.date "barthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

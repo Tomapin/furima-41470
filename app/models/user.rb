@@ -10,9 +10,9 @@ class User < ApplicationRecord
          	
   validates :nickname, presence: true
   validates :password, format: { with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers' }
-  validates :user_surname, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
-  validates :user_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
-  validates :user_surname_kana, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
-  validates :user_name_kana, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
+  validates :user_surname, presence: true, format: { with: FULL_WIDTH_REGEX, message: 'is invalid. Input full-width characters' }
+  validates :user_name, presence: true, format: { with: FULL_WIDTH_REGEX, message: 'is invalid. Input full-width characters' }
+  validates :user_surname_kana, presence: true, format: { with: KATAKANA_REGEX, message: 'is invalid. Input full-width katakana characters' }
+  validates :user_name_kana, presence: true, format: { with: KATAKANA_REGEX, message: 'is invalid. Input full-width katakana characters' }
   validates :barthday, presence: true
 end
