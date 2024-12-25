@@ -10,19 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_23_080625) do
-  create_table "records", charset: "utf8mb3", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shippings", charset: "utf8mb3", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", charset: "utf8mb3", force: :cascade do |t|
-    t.string "name"
+ActiveRecord::Schema[7.0].define(version: 2024_12_18_224605) do
+  create_table "items", charset: "utf8mb3", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
