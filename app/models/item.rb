@@ -1,8 +1,5 @@
 class Item < ApplicationRecord
 
-  has_many :items
-  has_one_attached :image
-
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :category
@@ -11,10 +8,19 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :delivery_time
 
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_fee_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :delivery_time_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :image, presence: true
+
+  validates :category_id, numericality: { other_than: 1, only_integer: true, message: "can't be blank" }
+  validates :status_id, numericality: { other_than: 1, only_integer: true, message: "can't be blank" }
+  validates :shipping_fee_id, numericality: { other_than: 1, only_integer: true, message: "can't be blank" }
+  validates :prefecture_id, numericality: { other_than: 1, only_integer: true, message: "can't be blank" }
+  validates :delivery_time_id, numericality: { other_than: 1, only_integer: true, message: "can't be blank" }
+
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+
+  belongs_to :user
+  has_one_attached :image
 
 end
