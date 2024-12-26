@@ -15,4 +15,6 @@ class User < ApplicationRecord
          validates :first_name_kana, presence: true, format: { with: KATAKANA_REGEX, message: 'is invalid. Input full-width katakana characters' }
          validates :last_name_kana, presence: true, format: { with: KATAKANA_REGEX, message: 'is invalid. Input full-width katakana characters' }
          validates :birth_date, presence: true
+  
+         belongs_to :user
 end
