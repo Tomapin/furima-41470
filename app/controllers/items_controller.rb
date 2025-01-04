@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to items_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,9 +24,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user_id == current_user.id
-    else
+    if @item.user_id != current_user.id || @item.order!=nil
       redirect_to root_path
+    else
+      render 'edit',status: :unprocessable_entity
     end
   end
 
@@ -40,9 +41,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.user_id == current_user.id
-      item.destroy
+    if user_signed_in? && @item.user == current_user
+      @item.destroy
       redirect_to root_path
     else
       redirect_to root_path
